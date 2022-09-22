@@ -15,6 +15,7 @@ public class Desarrollo_de_Interfaces {
      */
     public static void main(String[] args) {
         System.out.println("hola bona tarde");
+        System.out.println("que tal");
     }
     
 }
