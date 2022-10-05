@@ -152,6 +152,9 @@
       </Events>
     </Component>
     <Component class="org.netbeans.validation.api.ui.swing.ValidationPanel" name="validationPanelMensaje">
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="validationPanelMensajeStateChanged"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

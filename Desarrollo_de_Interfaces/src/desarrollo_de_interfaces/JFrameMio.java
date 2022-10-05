@@ -5,6 +5,7 @@
 package desarrollo_de_interfaces;
 
 import dto.Persona;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 import org.netbeans.validation.api.builtin.stringvalidation.StringValidators;
 import org.netbeans.validation.api.ui.ValidationGroup;
@@ -123,6 +124,12 @@ public class JFrameMio extends javax.swing.JFrame {
             }
         });
 
+        validationPanelMensaje.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                validationPanelMensajeStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -227,6 +234,14 @@ public class JFrameMio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextFieldActualizarEdadFocusLost
 
+    private void validationPanelMensajeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_validationPanelMensajeStateChanged
+        if (validationPanelMensaje.getProblem() == null) {
+            jButton1.setEnabled(true);
+        } else {
+            jButton1.setEnabled(false);
+        }
+    }//GEN-LAST:event_validationPanelMensajeStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -257,6 +272,8 @@ public class JFrameMio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                // Con esto pones el idioma predeterminado.
+                Locale.setDefault(new Locale("es", "ES"));
                 new JFrameMio().setVisible(true);
             }
         });
