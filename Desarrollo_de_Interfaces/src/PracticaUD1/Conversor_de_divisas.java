@@ -4,6 +4,7 @@
  */
 package PracticaUD1;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -36,8 +37,8 @@ public class Conversor_de_divisas extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabelResultado = new javax.swing.JLabel();
         jTextFieldResultado = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jComboBoxParaConvertir = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,18 +56,20 @@ public class Conversor_de_divisas extends javax.swing.JFrame {
         jLabelConversion.setText(org.openide.util.NbBundle.getMessage(Conversor_de_divisas.class, "Conversor_de_divisas.jLabelConversion.text")); // NOI18N
 
         jButtonConvertir.setText(org.openide.util.NbBundle.getMessage(Conversor_de_divisas.class, "Conversor_de_divisas.jButtonConvertir.text")); // NOI18N
+        jButtonConvertir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConvertirActionPerformed(evt);
+            }
+        });
 
         jTextField1.setText(org.openide.util.NbBundle.getMessage(Conversor_de_divisas.class, "Conversor_de_divisas.jTextField1.text")); // NOI18N
 
         jLabelResultado.setText(org.openide.util.NbBundle.getMessage(Conversor_de_divisas.class, "Conversor_de_divisas.jLabelResultado.text")); // NOI18N
 
         jTextFieldResultado.setText(org.openide.util.NbBundle.getMessage(Conversor_de_divisas.class, "Conversor_de_divisas.jTextFieldResultado.text")); // NOI18N
-
-        jTextField2.setEditable(false);
-        jTextField2.setText(org.openide.util.NbBundle.getMessage(Conversor_de_divisas.class, "Conversor_de_divisas.jTextField2.text")); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldResultado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                jTextFieldResultadoActionPerformed(evt);
             }
         });
 
@@ -74,6 +77,13 @@ public class Conversor_de_divisas extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jComboBoxParaConvertir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EUR", "USD" }));
+        jComboBoxParaConvertir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxParaConvertirActionPerformed(evt);
             }
         });
 
@@ -92,24 +102,26 @@ public class Conversor_de_divisas extends javax.swing.JFrame {
                         .addComponent(jLabelResultado)
                         .addGap(28, 28, 28)
                         .addComponent(jTextFieldResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jLabelConversion)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonConvertir)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabelFlecha)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addComponent(jComboBoxParaConvertir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabelFlecha))
+                            .addComponent(jButton1))))
                 .addGap(18, 18, 18)
                 .addComponent(jComboBoxAConvertir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addComponent(jButtonConvertir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(85, 85, 85))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,7 +134,7 @@ public class Conversor_de_divisas extends javax.swing.JFrame {
                     .addComponent(jLabelConversion)
                     .addComponent(jLabelFlecha)
                     .addComponent(jComboBoxAConvertir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxParaConvertir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonConvertir)
@@ -141,14 +153,23 @@ public class Conversor_de_divisas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jComboBoxAConvertirActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
            Conversor_divisas c = new Conversor_divisas(this, rootPaneCheckingEnabled);
            c.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBoxParaConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxParaConvertirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxParaConvertirActionPerformed
+
+    private void jButtonConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConvertirActionPerformed
+        Conversor_divisas c = new Conversor_divisas(this, rootPaneCheckingEnabled);
+        jTextFieldResultado.setText(c.calcularCambioDivisa(jTextField1.getText(), String.valueOf(jComboBoxParaConvertir.getSelectedItem()), String.valueOf(jComboBoxAConvertir.getSelectedItem())));
+    }//GEN-LAST:event_jButtonConvertirActionPerformed
+
+    private void jTextFieldResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldResultadoActionPerformed
+        
+    }//GEN-LAST:event_jTextFieldResultadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,12 +210,12 @@ public class Conversor_de_divisas extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonConvertir;
     public javax.swing.JComboBox<String> jComboBoxAConvertir;
+    public javax.swing.JComboBox<String> jComboBoxParaConvertir;
     private javax.swing.JLabel jLabelConverDeDiv;
     private javax.swing.JLabel jLabelConversion;
     private javax.swing.JLabel jLabelFlecha;
     private javax.swing.JLabel jLabelResultado;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextFieldResultado;
     // End of variables declaration//GEN-END:variables
 }
