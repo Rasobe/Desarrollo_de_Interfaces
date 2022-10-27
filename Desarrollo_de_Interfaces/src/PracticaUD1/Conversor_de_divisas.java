@@ -17,12 +17,6 @@ public class Conversor_de_divisas extends javax.swing.JFrame {
      */
     public Conversor_de_divisas() {
         initComponents();
-        crearListaDivisas();
-    }
-    
-    public void crearListaDivisas() {
-        HashMap<String, Double> listaDivisas = new HashMap<>();
-        listaDivisas.put("EUR", 1.00);
     }
 
     /**
@@ -43,12 +37,13 @@ public class Conversor_de_divisas extends javax.swing.JFrame {
         jLabelResultado = new javax.swing.JLabel();
         jTextFieldResultado = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabelConverDeDiv.setText(org.openide.util.NbBundle.getMessage(Conversor_de_divisas.class, "Conversor_de_divisas.jLabelConverDeDiv.text")); // NOI18N
 
-        jComboBoxAConvertir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxAConvertir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EUR", "USD" }));
         jComboBoxAConvertir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxAConvertirActionPerformed(evt);
@@ -75,6 +70,13 @@ public class Conversor_de_divisas extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText(org.openide.util.NbBundle.getMessage(Conversor_de_divisas.class, "Conversor_de_divisas.jButton1.text")); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,10 +85,6 @@ public class Conversor_de_divisas extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelConverDeDiv)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonConvertir)
-                .addGap(174, 174, 174))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -106,6 +104,12 @@ public class Conversor_de_divisas extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jComboBoxAConvertir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(108, 108, 108)
+                .addComponent(jButtonConvertir)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(85, 85, 85))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,9 +123,11 @@ public class Conversor_de_divisas extends javax.swing.JFrame {
                     .addComponent(jLabelFlecha)
                     .addComponent(jComboBoxAConvertir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(jButtonConvertir)
-                .addGap(67, 67, 67)
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonConvertir)
+                    .addComponent(jButton1))
+                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelResultado))
@@ -138,6 +144,11 @@ public class Conversor_de_divisas extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+           Conversor_divisas c = new Conversor_divisas(this, rootPaneCheckingEnabled);
+           c.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,8 +186,9 @@ public class Conversor_de_divisas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonConvertir;
-    private javax.swing.JComboBox<String> jComboBoxAConvertir;
+    public javax.swing.JComboBox<String> jComboBoxAConvertir;
     private javax.swing.JLabel jLabelConverDeDiv;
     private javax.swing.JLabel jLabelConversion;
     private javax.swing.JLabel jLabelFlecha;
